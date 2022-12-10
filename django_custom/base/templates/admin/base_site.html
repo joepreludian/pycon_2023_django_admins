@@ -1,0 +1,42 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% endblock %}
+
+{% block extrastyle %}
+    {% if admin_name == 'admin' %}
+        <style rel="stylesheet">
+            :root {
+                --primary: #bb3333;
+                --secondary: #621111;
+            }
+        </style>
+    {% elif admin_name == 'client_admin' %}
+        <style rel="stylesheet">
+            :root {
+                --primary: #329ece;
+                --secondary: #073980;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% comment %}
+{% block nav-sidebar %}
+    {% include "admin/nav_sidebar.html" %}
+{% endblock %}
+{% endcomment %}
+
+{% block nav-global %}
+    {% if admin_name == 'admin' %}
+        {% include 'base/main_admin/_nav_bar.html' %}
+    {% elif admin_name == 'client_admin' %}
+        {% include 'base/client_admin/_nav_bar.html' %}
+    {% endif %}
+{% endblock %}
+
+{#{% block userlinks %}{% endblock %}#}
+{% block welcome-msg %}{% endblock %}

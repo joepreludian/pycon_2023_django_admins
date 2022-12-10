@@ -1,0 +1,16 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block nav-sidebar %}{% endblock %}
+
+{% block content %}
+    <div id="content-main">
+        Hello Site!
+    </div>
+{% endblock %}
