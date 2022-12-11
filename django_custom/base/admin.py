@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from django.template.response import TemplateResponse
-
+from .constants import AdminSites
 
 class MainAdminSite(admin.AdminSite):
     site_header = _("Car Rental ADMIN")
@@ -52,5 +52,6 @@ class ClientAdminSite(admin.AdminSite):
 
 
 # Declaring Admin Panels
-main_admin = MainAdminSite()
-client_admin = ClientAdminSite(name='client_admin')
+main_admin = MainAdminSite(name=AdminSites.ADMIN)
+client_admin = ClientAdminSite(name=AdminSites.CLIENT_ADMIN)
+
